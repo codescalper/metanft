@@ -45,23 +45,27 @@ export default function NFTForm() {
     if (isNetwork === "ETH_MAINNET" || isNetwork === "MATIC_MAINNET" || isNetwork === "OPT_MAINNET") {
       values.network = isNetwork;
   
-    
+      
       const requestData = {
         contractAddress: values.contractAddress,
         tokenId: values.tokenId,
         network: values.network
       };
-  
-      // Send the request to the server
-      axios.get("http://localhost:3000", { params: requestData })
-        .then(response => {
-     
-          console.log(response.data);
-        })
-        .catch(error => {
-          
-          console.error("Error:", error);
-        });
+      console.log(requestData);
+   
+      axios.get('https://assignment1-we2b.onrender.com', {
+        params: {
+          requestData
+        }
+      })
+      .then(response => {
+        
+        console.log(response.data);
+      })
+      .catch(error => {
+        
+        console.error('Error fetching metadata:', error);
+      });
     } 
   }
 
