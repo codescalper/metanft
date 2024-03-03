@@ -53,7 +53,7 @@ export default function NFTForm() {
       };
       console.log(requestData);
    
-      axios.get('https://assignment1-we2b.onrender.com', {
+      axios.get('https://assignment1-we2b.onrender.com/getNFTMetadata', {
         params: {
           requestData
         }
