@@ -17,11 +17,11 @@ const SelectNetwok = () => {
           <SelectValue placeholder="Ethereum" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="ethereum">
+          <SelectItem value="ETH_MAINNET">
             Ethereum <FaEthereum />
           </SelectItem>
-          <SelectItem value="polygon">Polygon</SelectItem>
-          <SelectItem value="solana">
+          <SelectItem value="MATIC_MAINNET">Polygon</SelectItem>
+          <SelectItem value="OPT_MAINNET">
             Solana <TbCurrencySolana />
           </SelectItem>
         </SelectContent>

@@ -23,11 +23,11 @@ import {
 } from "@/components/ui/dropdown-menu"
 import SelectNetwok from "./Select"
 import { useNetwork } from "@/hooks/useNetwork"
-
+import axios from "axios"
 const formSchema = z.object({
   contractAddress: z.string().refine(value => value.length === 42, "Must be a valid contract address"),
   tokenId: z.string().refine(value => value.length > 0, "Must be a valid token ID"),
-  network: z.enum(["ethereum", "polygon", "solana"]),
+  network: z.enum(["ETH_MAINNET", "MATIC_MAINNET", "OPT_MAINNET","ethereum"]),
 });
 
 export default function NFTForm() {
@@ -42,18 +42,32 @@ export default function NFTForm() {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    if (isNetwork === "ethereum" || isNetwork === "polygon" || isNetwork === "solana") {
+    if (isNetwork === "ETH_MAINNET" || isNetwork === "MATIC_MAINNET" || isNetwork === "OPT_MAINNET") {
       values.network = isNetwork;
-    } 
+  
     
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+      const requestData = {
+        contractAddress: values.contractAddress,
+        tokenId: values.tokenId,
+        network: values.network
+      };
+  
+      // Send the request to the server
+      axios.get("http://localhost:3000", { params: requestData })
+        .then(response => {
+     
+          console.log(response.data);
+        })
+        .catch(error => {
+          
+          console.error("Error:", error);
+        });
+    } 
   }
 
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center ">  
     <Form {...form} >
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8  max-w-full ">
         <FormField
