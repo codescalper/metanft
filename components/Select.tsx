@@ -14,14 +14,14 @@ const SelectNetwok = () => {
     <div>
       <Select onValueChange={handleNetworkChange}>
         <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Ethereum" />
+          <SelectValue placeholder="Network.Ethereum" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="ETH_MAINNET">
+          <SelectItem value="Network.ETH_MAINNET">
             Ethereum <FaEthereum />
           </SelectItem>
           <SelectItem value="MATIC_MAINNET">Polygon</SelectItem>
-          <SelectItem value="OPT_MAINNET">
+          <SelectItem value="Network.OPT_MAINNET">
             Solana <TbCurrencySolana />
           </SelectItem>
         </SelectContent>

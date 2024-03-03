@@ -27,7 +27,7 @@ import axios from "axios"
 const formSchema = z.object({
   contractAddress: z.string().refine(value => value.length === 42, "Must be a valid contract address"),
   tokenId: z.string().refine(value => value.length > 0, "Must be a valid token ID"),
-  network: z.enum(["ETH_MAINNET", "MATIC_MAINNET", "OPT_MAINNET","ethereum"]),
+  network: z.enum(["Network.ETH_MAINNET", "Network.MATIC_MAINNET", "Network.OPT_MAINNET","ethereum"]),
 });
 
 export default function NFTForm() {
@@ -42,7 +42,7 @@ export default function NFTForm() {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    if (isNetwork === "ETH_MAINNET" || isNetwork === "MATIC_MAINNET" || isNetwork === "OPT_MAINNET") {
+    if (isNetwork === "Network.ETH_MAINNET" || isNetwork === "Network.MATIC_MAINNET" || isNetwork === "Network.OPT_MAINNET") {
       values.network = isNetwork;
   
       
