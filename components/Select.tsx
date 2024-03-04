@@ -13,16 +13,20 @@ const SelectNetwok = () => {
   return (
     <div>
       <Select onValueChange={handleNetworkChange}>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Network.Ethereum" />
+        <SelectTrigger className="max-w-5xl lg:w-[360px] flex items-center "> 
+          <SelectValue placeholder="Ethereum" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="Network.ETH_MAINNET">
-            Ethereum <FaEthereum />
+          <span className="flex items-center">
+              Ethereum <FaEthereum className="ml-[0.5rem]" />
+              </span>
           </SelectItem>
           <SelectItem value="MATIC_MAINNET">Polygon</SelectItem>
           <SelectItem value="Network.OPT_MAINNET">
-            Solana <TbCurrencySolana />
+          <span className="flex items-center">
+            Solana <TbCurrencySolana className="ml-[0.5rem]"   />
+            </span>
           </SelectItem>
         </SelectContent>
       </Select>

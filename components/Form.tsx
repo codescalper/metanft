@@ -81,7 +81,7 @@ export default function NFTForm() {
 
 
   return (
-    <div className="flex justify-center ">
+    <div className="m-auto my-10 max-w-5xl space-y-10 px-3">
       <Form {...form} >
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8  max-w-full ">
           <FormField
@@ -91,7 +91,7 @@ export default function NFTForm() {
               <FormItem>
                 <FormLabel>Contract Address</FormLabel>
                 <FormControl>
-                  <Input placeholder="Paste NFT contract address" {...field} />
+                  <Input className="dark:bg-[primary]" placeholder="Paste NFT contract address" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -104,7 +104,7 @@ export default function NFTForm() {
               <FormItem>
                 <FormLabel>Token ID</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter Token ID" {...field} />
+                  <Input className="dark:bg-[primary]" placeholder="Enter Token ID" {...field} />
                 </FormControl>
                 <FormDescription>
                   This is your unique token ID.

@@ -6,7 +6,7 @@ import NFTForm from "@/components/Form";
 export default function Home() {
   return (
     <>
-    <div className="h-1/3 w-full  mt-5 lg:mt-10 bg-background flex flex-col items-center justify-center overflow-hidden rounded-md">
+    <div className="h-1/3 w-full  mt-5 lg:mt-10 bg-[primary] flex flex-col items-center justify-center overflow-hidden rounded-md">
       <h1 className="md:text-5xl text-3xl lg:text-8xl font-bold font-sans text-center relative z-20">
         Meta NFT
       </h1>
@@ -19,7 +19,7 @@ export default function Home() {
  
      
         <SparklesCore
-          background="transparent"
+          background="r"
           minSize={0.4}
           maxSize={1}
           particleDensity={1200}
