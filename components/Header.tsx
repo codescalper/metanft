@@ -26,7 +26,7 @@ const Header = () => {
             <span>metanft.</span>
           </Link>
 
-          <div className="hidden items-center space-x-4 sm:flex">
+          <div className=" items-center space-x-4 sm:flex">
             <ModeToggle />
             <Link href="/">
             <Drawer>
