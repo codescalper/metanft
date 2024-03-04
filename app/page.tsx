@@ -19,12 +19,12 @@ export default function Home() {
  
      
         <SparklesCore
-          background="r"
+          background="transparent"
           minSize={0.4}
-          maxSize={1}
+          maxSize={2}
           particleDensity={1200}
           className="w-full h-full"
-          particleColor="#FFFFFF"
+          particleColor="#ff2f00"
         />
  
       

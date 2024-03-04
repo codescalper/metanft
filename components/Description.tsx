@@ -35,10 +35,10 @@ export default function Description() {
   return (
     <div className="flex flex-col items-center  justify-center h-[20rem]  ">
 
-<div className="mx-auto relative w-3/4" >
+
 
       <TypewriterEffectSmooth className="" words={words} />
-</div>
+
       <p className="text-neutral-600 pr-5  underline underline-offset-4 decoration-orange-500 font-semibold pl-5 text-center  dark:text-neutral-200 text-xs sm:text-base  ">
          Paste the contract address , token ID and select the blockchain network and get the metadata of the NFT.
       </p>
