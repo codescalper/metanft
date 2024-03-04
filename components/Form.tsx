@@ -27,6 +27,7 @@ import { useNetwork } from "@/hooks/useNetwork"
 import { useResponse } from "@/hooks/useResponse";
 
 import axios from "axios"
+import { useState } from "react"
 const formSchema = z.object({
   contractAddress: z.string().refine(value => value.length === 42, "Must be a valid contract address"),
   tokenId: z.string().refine(value => value.length > 0, "Must be a valid token ID"),
@@ -36,6 +37,7 @@ const formSchema = z.object({
 export default function NFTForm() {
   const router = useRouter();
   const { isNetwork } = useNetwork();
+  const [isLoading, setIsLoading] = useState(false);
   const { setisResponse } = useResponse();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,9 +48,35 @@ export default function NFTForm() {
     },
   })
 
+  const Spinner = () => (
+    <svg
+      className="animate-spin h-5 w-5 text-white"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
+      ></circle>
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 4.418 3.582 8 8 8v-4c-2.19 0-4.17-.896-5.657-2.343z"
+      ></path>
+    </svg>
+  );
+
   function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true); 
     if (isNetwork === "Network.ETH_MAINNET" || isNetwork === "Network.MATIC_MAINNET" || isNetwork === "Network.OPT_MAINNET") {
         values.network = isNetwork;
+        
+
 
         const requestData = {
             contractAddress: values.contractAddress,
@@ -67,7 +95,8 @@ export default function NFTForm() {
         })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                  
+                  throw new Error('Network response was not ok');
                 }
                 return response.json();
             })
@@ -78,7 +107,9 @@ export default function NFTForm() {
             })
             .catch(error => {
                 console.error('Error fetching metadata:', error);
-            });
+            }).finally(() => {
+              setIsLoading(false); 
+          });;
     }
 }
 
@@ -137,8 +168,9 @@ export default function NFTForm() {
             )}
           />
           <div className="flex justify-center ">
-          <Button className="max-w-5xl lg:w-[360px] text-center" type="submit">Submit</Button>
-
+          <Button className="max-w-5xl lg:w-[360px] text-center" type="submit" disabled={isLoading}>
+            {isLoading ? <> Fetching <Spinner /> </> : "Fetch metadata"}
+          </Button>
           </div>
         </form>
       </Form>
