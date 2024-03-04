@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import SelectNetwok from "./Select"
 import { useNetwork } from "@/hooks/useNetwork"
+import { useResponse } from "@/hooks/useResponse";
+
 import axios from "axios"
 const formSchema = z.object({
   contractAddress: z.string().refine(value => value.length === 42, "Must be a valid contract address"),
@@ -32,6 +34,7 @@ const formSchema = z.object({
 
 export default function NFTForm() {
   const { isNetwork } = useNetwork();
+  const { setisResponse } = useResponse();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -68,6 +71,7 @@ export default function NFTForm() {
             })
             .then(data => {
                 console.log(data);
+                setisResponse(data);
             })
             .catch(error => {
                 console.error('Error fetching metadata:', error);
