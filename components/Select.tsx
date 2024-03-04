@@ -13,7 +13,7 @@ const SelectNetwok = () => {
   return (
     <div>
       <Select onValueChange={handleNetworkChange}>
-        <SelectTrigger className="max-w-5xl lg:w-[360px] flex items-center "> 
+        <SelectTrigger className="max-w-5xl lg:w-full flex items-center "> 
           <SelectValue placeholder="Ethereum" />
         </SelectTrigger>
         <SelectContent>

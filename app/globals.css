@@ -61,6 +61,39 @@ html, body {
   overflow-x: hidden;
 }
  
+.text-gradient {
+  background: linear-gradient(
+    60deg,
+    #ff8a00,
+    #ffcc00,
+    #ffff00,
+    #ffcc00,
+    #ff8a00,
+    #e52e71,
+    #c40000,
+    #ff0000
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  animation: animationGradient 3s ease alternate infinite;
+}
+
+@keyframes animationGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

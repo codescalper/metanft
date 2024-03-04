@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 import {
   Form,
   FormControl,
@@ -33,6 +34,7 @@ const formSchema = z.object({
 });
 
 export default function NFTForm() {
+  const router = useRouter();
   const { isNetwork } = useNetwork();
   const { setisResponse } = useResponse();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -72,6 +74,7 @@ export default function NFTForm() {
             .then(data => {
                 console.log(data);
                 setisResponse(data);
+                router.push('/metanft')
             })
             .catch(error => {
                 console.error('Error fetching metadata:', error);
@@ -93,6 +96,9 @@ export default function NFTForm() {
                 <FormControl>
                   <Input className="dark:bg-[primary]" placeholder="Paste NFT contract address" {...field} />
                 </FormControl>
+                <FormDescription>
+                  This is the contract address of the NFT.
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -118,18 +124,22 @@ export default function NFTForm() {
             name="network"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Network</FormLabel>
+
+                <FormLabel className="text-center ">Network</FormLabel>
                 <FormControl>
                   <SelectNetwok />
                 </FormControl>
                 <FormDescription>
-                  This is your unique token ID.
+                 Select the network of the NFT.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+          <div className="flex justify-center ">
+          <Button className="max-w-5xl lg:w-[360px] text-center" type="submit">Submit</Button>
+
+          </div>
         </form>
       </Form>
     </div>
