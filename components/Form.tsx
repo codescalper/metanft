@@ -14,19 +14,10 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import SelectNetwok from "./Select"
 import { useNetwork } from "@/hooks/useNetwork"
 import { useResponse } from "@/hooks/useResponse";
 
-import axios from "axios"
 import { useState } from "react"
 const formSchema = z.object({
   contractAddress: z.string().refine(value => value.length === 42, "Must be a valid contract address"),
