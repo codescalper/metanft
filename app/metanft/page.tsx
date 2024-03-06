@@ -22,23 +22,26 @@ export default function Home(){
     const [serverName, setServerName] = useState("");
 
     useEffect(() => {
-        if (data?.discordUrl) {
-            const discordUrl = data.discordUrl;
-            const inviteCode = discordUrl.split("/").pop();
-
-            fetch(`https://discord.com/api/invites/${inviteCode}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.guild) {
-                        setServerName(data.guild.name);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching server name:', error);
-                });
+        if (data && data.discordUrl) {
+          const discordUrl = data.discordUrl;
+          const inviteCode = discordUrl.split("/").pop();
+    
+          fetch(`https://discord.com/api/invites/${inviteCode}`)
+            .then(response => response.json())
+            .then(data => {
+              if (data.guild) {
+                setServerName(data.guild.name);
+              }
+            })
+            .catch(error => {
+              console.error('Error fetching server name:', error);
+            });
         }
-    }, [data]);
-
+      }, [data]);
+    
+      if (!data) {
+        return <div>Loading...</div>;
+      }
     console.log(data);
     return(
         <>
