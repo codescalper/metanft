@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+<a href=https://github.com/codescalper/metanft target="_blank">
+<img src='./metanft.png' width="100%" alt="metaNFT" />
+</a>
+</p>
 
-## Getting Started
 
-First, run the development server:
+
+<p align="center">
+<img src="https://img.shields.io/github/languages/code-size/codescalper/metanft" alt="GitHub code size in bytes" />
+<img src="https://img.shields.io/github/last-commit/codescalper/metanft" alt="GitHub last commit" />
+<img src="https://img.shields.io/github/commit-activity/m/codescalper/metanft" alt="GitHub commit activity month" />
+<img src="https://img.shields.io/github/license/codescalper/metanft" alt="GitHub license" />
+</p>
+
+## 📌 Overview
+
+Metanft leverages key dependencies like Next.js, React, TailwindCSS, and various Radix UI components. It also utilizes libraries such as tsParticles, Axios, and Zod for enhanced functionality and user experience.
+
+## 📁 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+├── .eslintrc.json
+├── .gitignore
+├── README.md
+├── app
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── metanft
+│   │   └── page.tsx
+│   └── page.tsx
+├── components.json
+├── components
+│   ├── Description.tsx
+│   ├── Form.tsx
+│   ├── Header.tsx
+│   ├── MaxWidthWrapper.tsx
+│   ├── MoodToggle.tsx
+│   ├── Select.tsx
+│   ├── theme-provider.tsx
+│   └── ui
+│       ├── badge.tsx
+│       ├── button.tsx
+│       ├── card.tsx
+│       ├── drawer.tsx
+│       ├── dropdown-menu.tsx
+│       ├── form.tsx
+│       ├── input.tsx
+│       ├── label.tsx
+│       ├── select.tsx
+│       ├── sparkles.tsx
+│       └── typewriter-effect.tsx
+├── hooks
+│   ├── useNetwork.ts
+│   └── useResponse.ts
+├── lib
+│   └── utils.ts
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── next.svg
+│   └── vercel.svg
+├── tailwind.config.ts
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📝 Project Summary
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [**app**](app): Main application logic and entry point.
+- [**app/metanft**](app/metanft): Specific functionality related to NFT metadata.
+- [**components**](components): Reusable UI components for the application.
+- [**components/ui**](components/ui): UI-specific components for the application.
+- [**hooks**](hooks): Custom React hooks for managing state and logic.
+- [**lib**](lib): External libraries or utilities used in the project.
+- [**public**](public): Static assets and files served to the client.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 💻 Stack
 
-## Learn More
+- [react-hook-form](https://react-hook-form.com/): Efficient form management library.
+- [axios](https://axios-http.com/): HTTP client for data fetching.
+- [zustand](https://zustand.surge.sh/): State management solution.
+- [next](https://nextjs.org/): React framework for server-side rendering.
+- [framer-motion](https://www.framer.com/motion/): Animation library for React.
+- [tailwindcss](https://tailwindcss.com/): Utility-first CSS framework.
+- [typescript](https://www.typescriptlang.org/): Typed superset of JavaScript.
+- [tsparticles/react](https://particles.matteobruni.it/): Particle animations for React.
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Run Locally
+1.Clone the metanft repository:
+```sh
+git clone https://github.com/codescalper/metanft
+```
+2.Install the dependencies with one of the package managers listed below:
+```bash
+pnpm install
+bun install
+npm install
+yarn install
+```
+3.Start the development mode:
+```bash
+pnpm dev
+bun dev
+npm run dev
+yarn dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🙌 Contributors
+<a href="https://github.com/codescalper/metanft/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=codescalper/metanft" />
+</a>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## ☁️ Deploy
 
-## Deploy on Vercel
+`[MetaNFT](https://metanft.10xeng.xyz/)`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
